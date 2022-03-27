@@ -1,15 +1,15 @@
 import React from 'react';
 import './Meal.css';
 
-const Meal = (props) => {
-    const { strMeal, strInstructions, strMealThumb } = props.meal;
+const Meal = ({meal, handleOrderItem}) => {
+    const { strMeal, strInstructions, strMealThumb } = meal;
     
     return (
         <div className="meal">
             <img src={strMealThumb} alt="" />
             <h4>{strMeal}</h4>
             <p>{strInstructions.slice(0, 100)}</p>
-            <button>Add this Food</button>
+            <button onClick={()=>handleOrderItem(meal)}>Add this Food</button>
         </div>
     );
 };

@@ -12,6 +12,11 @@ const Restaurant = () => {
             .then(res => res.json())
             .then(data => setMeals(data.meals));
     }, []);
+    const handleOrderItem = item=>{
+        let newItem = [];
+        newItem = [...orders, item];
+        setOrders(newItem)    
+    }
     /* 
         The above api link or the below method will now work for search. 
         if you want to implement search in this code. 
@@ -35,6 +40,7 @@ const Restaurant = () => {
                     meals.map(meal => <Meal
                         key={meal.idMeal}
                         meal={meal}
+                        handleOrderItem={handleOrderItem}
                     ></Meal>)
                 }
             </div>
